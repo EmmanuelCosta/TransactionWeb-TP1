@@ -15,11 +15,11 @@ public class LibrairyClient {
 
 			LibraryInterface library = (LibraryInterface) Naming
 					.lookup("Librairie");
-			library.addBook(UUID.randomUUID().toString(), "ManU est en France",
+			library.addBook(UUID.randomUUID(), "ManU est en France",
 					"costa");
 			System.out.println(library.searchByAuthor("costa")!=null);
 			Book b = new Book("author", "isbn",UUID.randomUUID());
-			library.addBook(UUID.randomUUID().toString(), "title", "author");
+			library.addBook(UUID.randomUUID(), "title", "author");
 			System.out.println(library.searchByTitle("title")!=null);
 			library.searchByAuthor("author").setTitle("tyran");
 			System.out.println(library.searchByTitle("title")!=null);

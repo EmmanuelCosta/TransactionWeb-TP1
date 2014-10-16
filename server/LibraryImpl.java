@@ -13,17 +13,16 @@ public class LibraryImpl extends UnicastRemoteObject implements LibraryInterface
 	}
 
 	@Override
-	public void addBook(String isbn, String title, String author)
+	public void addBook(UUID isbn, String title, String author)
 			throws RemoteException {
-		UUID uuid = UUID.fromString(isbn);
-		books.put(uuid, new Book(title, author, uuid));
+		books.put(isbn, new Book(title, author, isbn));
 		
 	}
 
 	@Override
-	public void suppress(String isbn) throws RemoteException {
+	public void suppress(UUID isbn) throws RemoteException {
 		if(!books.isEmpty()){
-			books.remove(UUID.fromString(isbn));
+			books.remove(isbn);
 		}
 		
 	}
